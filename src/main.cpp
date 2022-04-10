@@ -62,7 +62,6 @@ bool isValidDate(int dd, int mm, int yy)
     return true;
 }
 
-
 string bulanConverter(int number){
 	string bulan;
 	switch (number){
@@ -151,82 +150,15 @@ while (temp == 0){
 }
 }
 
-/*int editBiomhs(int mode, int pilihan){
-	vector<mahasiswa> recMhs;
-	while (mode == 1){
-		system("@cls || clear");
-		cout<<"Edit Biodata"<<endl;
-		cout<<"=================="<<endl;
-		cout<<"1. Nama Mahasiswa : ";
-		cout<<recMhs[pilihan].getNama()<<endl;
-		cout<<"2. NRP Mahasiswa :";
-		cout<<recMhs[pilihan].getNRP()<<endl;
-		cout<<"3. Departemen : ";
-		cout<<recMhs[pilihan].getDepartemen()<<endl;
-		cout<<"4. Tanggal Lahir : ";
-		cout<<recMhs[pilihan].getTglLahir(); cout<<" ";
-		cout<<bulanConverter(recMhs[pilihan].getBulanLahir());cout<<" ";
-		cout<<recMhs[pilihan].getTahunLahir()<<endl;
-		cout<<"5. Tahun Masuk : ";
-		cout<<recMhs[pilihan].getTahunmasuk();
-		cout<<endl; cout<<endl; cout<<endl;
-
-		string sel;
-		cout<<"Pilih data yang mau di edit : ";
-		cin>>sel;
-
-		if (sel == "1"){
-			string nama;
-			cout<<"Masukkan nama yang baru : ";
-			cin>>nama;
-			recMhs[pilihan].setNama(nama);
-		} else if (sel == "2")
-		{
-			string nrp;
-			cout<<"Masukkan nrp yang baru : ";
-			cin>>nrp;
-			recMhs[pilihan].setNama(nrp);
-		} else if (sel == "3"){
-			string departemen;
-			cout<<"Masukkan departemen yang baru :";
-			cin>>departemen;
-			recMhs[pilihan].setDepartemen(departemen);
-		} else if (sel == "4"){
-			int dd,mm,yy;
-			cout<<"masukkan tanggal yang baru : ";
-			cin>>dd;
-			cout<<"masukkan bulan yang baru : ";
-			cin>>mm;
-			cout<<"masukkan tahun yang baru : ";
-			cin>>yy;
-			recMhs[pilihan].setTglLahir(dd,mm,yy);
-		} else if (sel == "5"){
-			int tahunmasuk;
-			cout<<"masukkan tahun yang baru : ";
-			cin>>tahunmasuk;
-			recMhs[pilihan].setTahunmasuk(tahunmasuk);
-		} else {
-			mode = 0;return mode;
-		}
-
-	}
-	
-}*/
-
-/*int editAkademis(int mode, int pilihan){
-
-}*/
-
 int main(int argc, char** argv)
 {
-
 	int menu_terpilih;
 	string username;
 	int temp = 0;
 	system("@cls || clear");
 	temp = startmenu(temp);
 
-	while(temp == 1) {
+	while (temp == 1){
 		system("@cls || clear");
 		cout << "Selamat datang di Universitas amediketu" << endl << endl;
 		cout << "Data statistik:" << endl;
@@ -792,7 +724,7 @@ int main(int argc, char** argv)
 		cout << "Menu: " << endl;
 		cout << "  1. Tampilkan semua Mahasiswa" << endl;
 		cout << "  2. Tampilkan Biodata saya" << endl;
-		cout<< "3. Log Out" <<endl;
+		cout << "  3. Log Out" <<endl;
 		cin>>menu_terpilih;
 
 		switch(menu_terpilih){
@@ -1099,10 +1031,10 @@ int main(int argc, char** argv)
 		cout << "  1. Jumlah Mahasiswa             : " << recMhs.size() << " Mahasiswa" << endl;
 		cout << "  2. Jumlah Dosen                 : " << recDosen.size() << " Dosen" << endl;
 		cout << "  3. Jumlah Tenaga Kependidikan   : " << recTendik.size() << " Tendik" << endl;
-		cout << "Menu: " << endl;
-		cout << " 1. Tampilkan Biodata saya" << endl;
-		cout<< "2. Log Out" <<endl;
-		cin>>menu_terpilih;
+		cout << "  Menu: " << endl;
+		cout << "  1. Tampilkan Biodata saya" << endl;
+		cout << "   2. Log Out" <<endl;
+		cin  >> menu_terpilih;
 
 		switch (menu_terpilih){
 			case 1: {

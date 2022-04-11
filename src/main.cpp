@@ -110,8 +110,8 @@ while (temp == 0){
 		string checker;
 		urutanlog = i;
 		checker = recMhs[i].getNama();
-		remove(checker.begin(),checker.end(),' ');
-		transform(checker.begin(),checker.end(),checker.begin(),::tolower);
+		remove(checker.begin(),checker.end(),' ');//menghilangkan spasi dari nama
+		transform(checker.begin(),checker.end(),checker.begin(),::tolower);//membuat nama menjadi huruf kecil semua
 		if (username == checker){
 			temp1 = true;
 		}
@@ -121,8 +121,8 @@ while (temp == 0){
 		string checker;
 		urutanlog = i;
 		checker = recDosen[i].getNama();
-		remove(checker.begin(),checker.end(),' ');
-		transform(checker.begin(),checker.end(),checker.begin(),::tolower);
+		remove(checker.begin(),checker.end(),' ');//menghilangkan spasi dari nama
+		transform(checker.begin(),checker.end(),checker.begin(),::tolower);//membuat nama menjadi huruf kecil semua
 		if (username == checker){
 			temp2 = true;
 		}
@@ -132,8 +132,8 @@ while (temp == 0){
 		string checker;
 		urutanlog = i;
 		checker = recTendik[i].getNama();
-		remove(checker.begin(),checker.end(),' ');
-		transform(checker.begin(),checker.end(),checker.begin(),::tolower);
+		remove(checker.begin(),checker.end(),' ');//menghilangkan spasi dari nama
+		transform(checker.begin(),checker.end(),checker.begin(),::tolower);//membuat nama menjadi huruf kecil semua
 		if (username == checker){
 			temp3 = true;
 		}

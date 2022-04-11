@@ -270,8 +270,12 @@ int main(int argc, char** argv)
 				getline(cin,departemen);
 				cout<<"Masukkan tanggal lahir:";
 				cin>>dd;
+				if (cin.fail())	
+{cin.clear();cin.ignore();cin.ignore();break;}
 				cout<<"Masukkan bulan lahir:";
 				cin>>mm;
+				if (cin.fail())	
+{cin.clear();cin.ignore();cin.ignore();break;}
 				cout<<"Masukkan tahun lahir:";
 				cin>>yy;
 				if (cin.fail())
@@ -319,13 +323,17 @@ int main(int argc, char** argv)
 				getline(cin,unit);
 				cout<<"Masukkan hari lahir:";
 				cin>>dd;
+				if (cin.fail())	
+{cin.clear();cin.ignore();cin.ignore();break;}
 				cout<<"Masukkan bulan lahir:";
 				cin>>mm;
+				if (cin.fail())	
+{cin.clear();cin.ignore();cin.ignore();break;}
 				cout<<"Masukkan tahun lahir:";
 				cin>>yy;
+				if (cin.fail())	
+{cin.clear();cin.ignore();cin.ignore();break;}
 
-				if (cin.fail())
-				{cin.clear();cin.ignore();cin.ignore();break;}
 
 				if (!isValidDate(dd,mm,yy)){
 					system("@cls || clear");
@@ -395,8 +403,7 @@ int main(int argc, char** argv)
 			int mode=0;
 				switch (selection)
 				{
-					case 1:
-					{
+					case 1:{
 						mode = 1;
 						while (mode == 1){
 							system("@cls || clear");
@@ -430,6 +437,15 @@ int main(int argc, char** argv)
 							cout<<"Masukkan nrp yang baru : ";
 							cin.ignore();
 							getline(cin,nrp);
+							if (!isNumber(nrp)){
+system("@cls || clear");
+cout<<"NRP yang anda masukkan salah";
+cout<<endl; cout<<endl; cout<<endl; cout<<endl;
+cout<<"Tekan enter untuk kembali ke awal"<<endl;
+cin.ignore();
+cin.ignore();
+	break;
+				}
 							recMhs[pilihan].setNRP(nrp);
 							} else if (sel == "3"){
 							string departemen;
@@ -441,10 +457,26 @@ int main(int argc, char** argv)
 							int dd,mm,yy;
 							cout<<"masukkan tanggal yang baru : ";
 							cin>>dd;
+							if (cin.fail())
+{cin.clear();cin.ignore();cin.ignore();break;}
 							cout<<"masukkan bulan yang baru : ";
 							cin>>mm;
+							if (cin.fail())
+{cin.clear();cin.ignore();cin.ignore();break;}
 							cout<<"masukkan tahun yang baru : ";
 							cin>>yy;
+							if (cin.fail())	
+{cin.clear();cin.ignore();cin.ignore();break;}
+
+if (!isValidDate(dd,mm,yy)){
+	system("@cls || clear");
+	cout<<"Tanggal yang anda masukkan tidak valid"<<endl;
+	cout<<endl; cout<<endl; cout<<endl; cout<<endl;
+	cout<<"Tekan enter untuk kembali ke awal"<<endl;
+	cin.ignore();
+	cin.ignore();
+	break;
+	}
 							recMhs[pilihan].setTglLahir(dd,mm,yy);
 							} else if (sel == "5"){
 							int tahunmasuk;
@@ -476,6 +508,8 @@ int main(int argc, char** argv)
 
 					cout<<"press 1 to set IPS"<<endl<<"press 2 to edit"<<endl<<"press 0 to exit";
 					cin>>choice;
+					if (cin.fail())
+{cin.clear();cin.ignore();cin.ignore();break;}
 					float ips;
 					if (choice == 1){
 						cout<<endl;cout<<endl;
@@ -483,6 +517,8 @@ int main(int argc, char** argv)
 							cout<<i+1<<". ";
 							cout<<"Semester "<<i+1<<": ";
 							cin>>ips;
+							if (cin.fail())
+{cin.clear();cin.ignore();cin.ignore();break;}
 							recMhs[pilihan].setIPS(i,ips);
 						
 						}
@@ -491,7 +527,9 @@ int main(int argc, char** argv)
 					else if (choice == 2) {
 						float newsems;
 						cout<<"masukkan semester baru : ";
-						cin>>newsems;
+						cin>>newsems;	
+						if (cin.fail())
+{cin.clear();cin.ignore();cin.ignore();break;}
 						recMhs[pilihan].setSemester(newsems);
 						goto IPS;
 					}
@@ -575,6 +613,15 @@ int main(int argc, char** argv)
 							cout<<"Masukkan npp yang baru : ";
 							cin.ignore();
 							getline(cin,npp);
+							if (!isNumber(npp)){
+system("@cls || clear");
+cout<<"NRP yang anda masukkan salah";
+cout<<endl; cout<<endl; cout<<endl; cout<<endl;
+cout<<"Tekan enter untuk kembali ke awal"<<endl;
+cin.ignore();
+cin.ignore();
+	break;
+				}
 							recDosen[pilihan].setNPP(npp);
 							} else if (sel == "3"){
 							string departemen;
@@ -586,10 +633,25 @@ int main(int argc, char** argv)
 							int dd,mm,yy;
 							cout<<"masukkan tanggal yang baru : ";
 							cin>>dd;
+							if (cin.fail())	
+{cin.clear();cin.ignore();cin.ignore();break;}
 							cout<<"masukkan bulan yang baru : ";
 							cin>>mm;
+							if (cin.fail())	
+{cin.clear();cin.ignore();cin.ignore();break;}
 							cout<<"masukkan tahun yang baru : ";
 							cin>>yy;
+							if (cin.fail())	
+{cin.clear();cin.ignore();cin.ignore();break;}
+if (!isValidDate(dd,mm,yy)){
+	system("@cls || clear");
+	cout<<"Tanggal yang anda masukkan tidak valid"<<endl;
+	cout<<endl; cout<<endl; cout<<endl; cout<<endl;
+	cout<<"Tekan enter untuk kembali ke awal"<<endl;
+	cin.ignore();
+	cin.ignore();
+	break;
+	}
 							recDosen[pilihan].setTglLahir(dd,mm,yy);
 							} else if (sel == "4"){
 							string pendidikan;
@@ -676,6 +738,15 @@ int main(int argc, char** argv)
 							cout<<"Masukkan npp yang baru : ";
 							cin.ignore();
 							getline(cin,npp);
+							if (!isNumber(npp)){
+system("@cls || clear");
+cout<<"NRP yang anda masukkan salah";
+cout<<endl; cout<<endl; cout<<endl; cout<<endl;
+cout<<"Tekan enter untuk kembali ke awal"<<endl;
+cin.ignore();
+cin.ignore();
+	break;
+}
 							recTendik[pilihan].setNPP(npp);
 							} else if (sel == "3"){
 							string unit;
@@ -687,10 +758,16 @@ int main(int argc, char** argv)
 							int dd,mm,yy;
 							cout<<"masukkan tanggal yang baru : ";
 							cin>>dd;
+							if (cin.fail())	
+{cin.clear();cin.ignore();cin.ignore();break;}
 							cout<<"masukkan bulan yang baru : ";
 							cin>>mm;
+							if (cin.fail())	
+{cin.clear();cin.ignore();cin.ignore();break;}
 							cout<<"masukkan tahun yang baru : ";
 							cin>>yy;
+							if (cin.fail())	
+{cin.clear();cin.ignore();cin.ignore();break;}
 							recTendik[pilihan].setTglLahir(dd,mm,yy);
 							} else {
 							system("@cls || clear");
@@ -795,6 +872,8 @@ int main(int argc, char** argv)
 
 					cout<<"press 1 to set IPS"<<endl<<"press 2 to edit Semester"<<endl<<"press 0 to exit";
 					cin>>choice;
+					if (cin.fail())
+{cin.clear();cin.ignore();cin.ignore();break;}
 					float ips;
 					if (choice == 1){
 						cout<<endl;cout<<endl;
@@ -802,6 +881,8 @@ int main(int argc, char** argv)
 							cout<<i+1<<". ";
 							cout<<"Semester "<<i+1<<": ";
 							cin>>ips;
+							if (cin.fail())
+{cin.clear();cin.ignore();cin.ignore();break;}
 							recMhs[pilihan].setIPS(i,ips);
 						
 						}
@@ -811,6 +892,8 @@ int main(int argc, char** argv)
 						float newsems;
 						cout<<"masukkan semester baru : ";
 						cin>>newsems;
+						if (cin.fail())
+{cin.clear();cin.ignore();cin.ignore();break;}
 						recMhs[pilihan].setSemester(newsems);
 						goto IPSD;
 			} else if (selection == 2){
@@ -879,6 +962,15 @@ int main(int argc, char** argv)
 							cout<<"Masukkan npp yang baru : ";
 							cin.ignore();
 							getline(cin,npp);
+							if (!isNumber(npp)){
+system("@cls || clear");
+cout<<"NRP yang anda masukkan salah";
+cout<<endl; cout<<endl; cout<<endl; cout<<endl;
+cout<<"Tekan enter untuk kembali ke awal"<<endl;
+cin.ignore();
+cin.ignore();
+break;
+}
 							recDosen[urutanlog].setNPP(npp);
 							} else if (sel == "3"){
 							string departemen;
@@ -890,10 +982,25 @@ int main(int argc, char** argv)
 							int dd,mm,yy;
 							cout<<"masukkan tanggal yang baru : ";
 							cin>>dd;
+							if (cin.fail())
+{cin.clear();cin.ignore();cin.ignore();break;}
 							cout<<"masukkan bulan yang baru : ";
 							cin>>mm;
+							if (cin.fail())
+{cin.clear();cin.ignore();cin.ignore();break;}
 							cout<<"masukkan tahun yang baru : ";
 							cin>>yy;
+							if (cin.fail())
+{cin.clear();cin.ignore();cin.ignore();break;}
+if (!isValidDate(dd,mm,yy)){
+system("@cls || clear");
+cout<<"Tanggal yang anda masukkan tidak valid"<<endl;
+cout<<endl; cout<<endl; cout<<endl; cout<<endl;
+cout<<"Tekan enter untuk kembali ke awal"<<endl;
+cin.ignore();
+cin.ignore();
+break;
+}
 							recDosen[urutanlog].setTglLahir(dd,mm,yy);
 							} else if (sel == "4"){
 							string pendidikan;
@@ -999,10 +1106,26 @@ int main(int argc, char** argv)
 							int dd,mm,yy;
 							cout<<"masukkan tanggal yang baru : ";
 							cin>>dd;
+							if (cin.fail())
+{cin.clear();cin.ignore();cin.ignore();break;}
 							cout<<"masukkan bulan yang baru : ";
 							cin>>mm;
+							if (cin.fail())
+{cin.clear();cin.ignore();cin.ignore();break;}
 							cout<<"masukkan tahun yang baru : ";
 							cin>>yy;
+							if (cin.fail())
+{cin.clear();cin.ignore();cin.ignore();break;}
+
+if (!isValidDate(dd,mm,yy)){
+system("@cls || clear");
+cout<<"Tanggal yang anda masukkan tidak valid"<<endl;
+cout<<endl; cout<<endl; cout<<endl; cout<<endl;
+cout<<"Tekan enter untuk kembali ke awal"<<endl;
+cin.ignore();
+cin.ignore();
+break;
+}
 							recMhs[urutanlog].setTglLahir(dd,mm,yy);
 							}  else {
 							system("@cls || clear");
@@ -1092,6 +1215,15 @@ int main(int argc, char** argv)
 							cout<<"Masukkan npp yang baru : ";
 							cin.ignore();
 							getline(cin,npp);
+							if (!isNumber(npp)){
+system("@cls || clear");
+cout<<"NRP yang anda masukkan salah";
+cout<<endl; cout<<endl; cout<<endl; cout<<endl;
+cout<<"Tekan enter untuk kembali ke awal"<<endl;
+cin.ignore();
+cin.ignore();
+break;
+}
 							recTendik[urutanlog].setNPP(npp);
 							} else if (sel == "3"){
 							string unit;
@@ -1103,10 +1235,25 @@ int main(int argc, char** argv)
 							int dd,mm,yy;
 							cout<<"masukkan tanggal yang baru : ";
 							cin>>dd;
+							if (cin.fail())
+{cin.clear();cin.ignore();cin.ignore();break;}
 							cout<<"masukkan bulan yang baru : ";
 							cin>>mm;
+							if (cin.fail())
+{cin.clear();cin.ignore();cin.ignore();break;}
 							cout<<"masukkan tahun yang baru : ";
 							cin>>yy;
+							if (cin.fail())
+{cin.clear();cin.ignore();cin.ignore();break;}
+if (!isValidDate(dd,mm,yy)){
+system("@cls || clear");
+cout<<"Tanggal yang anda masukkan tidak valid"<<endl;
+cout<<endl; cout<<endl; cout<<endl; cout<<endl;
+cout<<"Tekan enter untuk kembali ke awal"<<endl;
+cin.ignore();
+cin.ignore();
+break;
+}
 							recTendik[urutanlog].setTglLahir(dd,mm,yy);
 							} else {
 							system("@cls || clear");

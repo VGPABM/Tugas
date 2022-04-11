@@ -5,7 +5,7 @@ Tugas Proglan Vincentius Gusti Putu Agung Bagus Mahendra -> 5024211071
 CARA MENJALANKAN PROGRAMNYA!!!!!!!!!
 
 Untuk melakukan login -> pertama masukan username dan password
-Password awal masuk
+
 ==============================================================================
 username : admin || password : admin
 ==============================================================================

@@ -18,7 +18,15 @@ vector<mahasiswa> recMhs;
 vector<dosen> recDosen;
 vector<tendik> recTendik;
 
-unsigned urutanlog;
+/*
+Beberapa function penting yang banyak digunakan di dalam SIM ini:
+if (cin.fail()) --> mengecek apabila dilakukan kesalahan input data sehingga fungsi cin masuk ke dalam status False --> kemudian digunakan cin.ignore untuk mematikan fungsi cin
+system("@cls || clear") --> membersihkan terminal sehingga terlihat rapi. @cls untuk membersihkan terminal di vscode windows sementara clear digunakan untuk terminal di linux
+isvalidate --> digunakan untuk mengecek angka tanggal,bulan dan tahun yang dimasukkan adalah sebuah tanggal yang valid dan benar-benar ada di dunia ini.
+*/
+
+
+unsigned urutanlog; //digunakan untuk memilih dosen/mahasiswa/tendik tersebut terdapat di bagian mana ketika dilakukan searching di vector
 
 bool isNumber(const string& s)
 {
@@ -28,13 +36,14 @@ bool isNumber(const string& s)
     }
     return true;
  }
+//function untuk mengecek angka atau bukan
 
-bool isLeap(int year)
-{
+bool isLeap(int year) {
 return (((year % 4 == 0) &&
          (year % 100 != 0)) ||
          (year % 400 == 0));
 }
+//function untuk mengecek tahun tersebut leap year atau bukan
 
 bool isValidDate(int dd, int mm, int yy)
 {
@@ -61,6 +70,7 @@ bool isValidDate(int dd, int mm, int yy)
  
     return true;
 }
+//function untuk utama pengecekan tanggal valid atau tidak
 
 string bulanConverter(int number){
 	string bulan;
@@ -79,6 +89,7 @@ string bulanConverter(int number){
 		case 12: {bulan = "Desember"; return bulan;} break;
 	}
 }
+//function untuk mengkonversi tanggal, bulan dan tahun, ke dalam tulisan
 
 int startmenu(int temp){
 	string username,password;
@@ -149,15 +160,17 @@ while (temp == 0){
 	return temp;
 }
 }
+//menu login, muncul ketika varible temp = 0
 
 int main(int argc, char** argv)
 {
 	int menu_terpilih;
 	string username;
 	int temp = 0;
-	system("@cls || clear");
-	temp = startmenu(temp);
+	system("@cls || clear");//function untuk membersihkan terminal
+	temp = startmenu(temp); //masuk ke dalam function startmenu
 
+//Looping utama menu dari admin access
 	while (temp == 1){
 		system("@cls || clear");
 		cout << "Selamat datang di Universitas amediketu" << endl << endl;
@@ -178,6 +191,7 @@ int main(int argc, char** argv)
 		cin >> menu_terpilih;
 
 		switch (menu_terpilih) {
+		//Menambahkan Mahasiswa baru
 		case 1:{
 				system("@cls || clear");
 				cout<< "Menu menambah mahasiswa"<<endl;
@@ -244,6 +258,7 @@ int main(int argc, char** argv)
 			}
 			break;
 
+		//Menambahkan Dosen Baru
 		case 2:{
 				system("@cls || clear");
 				cout<< "Menu menambah Dosen"<<endl;
@@ -297,6 +312,7 @@ int main(int argc, char** argv)
 			}
 			break;
 
+		//Menambahkan Tendik Baru
 		case 3:{
 				system("@cls || clear");
 				cout<< "Menu menambah Tenaga Pendidik"<<endl;
@@ -350,6 +366,7 @@ int main(int argc, char** argv)
 			}
 			break;
 
+		//Mengakses database vektor Mahasiswa
 		case 4:{
 			system("@cls || clear");
 			cout<<"List Mahasiswa"<<endl;
@@ -539,7 +556,8 @@ if (!isValidDate(dd,mm,yy)){
 			}
 			}
 			break;
-		
+
+		//Mengakses database vektor dosen
 		case 5:{
 			system("@cls || clear");
 			cout<<"List Dosen"<<endl;
@@ -668,7 +686,8 @@ if (!isValidDate(dd,mm,yy)){
 			}
 		}
 			break;
-		
+
+		//Mengakses database vektor Tendik
 		case 6:{
 			system("@cls || clear");
 			cout<<"List Tenaga Pendidik"<<endl;
@@ -778,7 +797,8 @@ cin.ignore();
 			}
 		}
 			break;
-		
+
+		//Keluar dari login admin
 		case 7:{
 			temp = 0;
 			temp = startmenu(temp);
@@ -787,6 +807,7 @@ cin.ignore();
 		}
 	}
 
+//Looping utama menu dari dosen access
 	while (temp == 2){
 		int menu_terpilih = 0;
 		string dosenterpilih;
@@ -805,6 +826,7 @@ cin.ignore();
 		cin>>menu_terpilih;
 
 		switch(menu_terpilih){
+		//Menampilkan dan mengakses database vektor mahasiswa
 		case 1:{
 			system("@cls || clear");
 			cout<<"List Mahasiswa"<<endl;
@@ -903,6 +925,7 @@ cin.ignore();
 		} 
 		}break;
 		
+		//Menampilkan Biodata dosen itu sendiri
 		case 2:{
 			int selection;
 			inspectDosD:
@@ -1018,6 +1041,7 @@ break;
 			}
 		break;
 		
+		//Keluar dari Login dosen
 		case 3:{
 		temp = 0;
 		temp = startmenu(temp);
@@ -1026,6 +1050,7 @@ break;
 		}
 	}
 
+//Looping utama dari mahasiswa access
 	while (temp == 3){
 		int menu_terpilih = 0;
 		string mahasiswaterpilih;
@@ -1039,10 +1064,11 @@ break;
 		cout << "  3. Jumlah Tenaga Kependidikan   : " << recTendik.size() << " Tendik" << endl;
 		cout << "Menu: " << endl;
 		cout << "  1. Tampilkan Biodata saya" << endl;
-		cout<< "2. Log Out" <<endl;
+		cout<<  "  2. Log Out" <<endl;
 		cin>>menu_terpilih;
 
 		switch (menu_terpilih){
+			//Mengedit Biodata Mahasiswa
 			case 1: {
 			inspectionM:
 			int selection = 0;
@@ -1076,14 +1102,16 @@ break;
 			cout<<"11. Tahun Masuk : ";
 			cout<<recMhs[urutanlog].getTahunmasuk()<<endl;
 			cout<<endl; cout<<endl; cout<<endl; cout<<endl;
-			cout<<"Press 1 to edit Biodata "<<endl << "Press 2 to exit";
+			cout<<"Press 1 to edit Biodata "<<endl << "Press 2 to see IPS" <<endl<<"Press 3 to exit";
 			cin>>selection;
 			int mode=0;
 
+			//pilihan untuk mengedit biodata
 			if (selection == 1){
 				mode = 1;
 						while (mode == 1){
 							system("@cls || clear");
+							biodatam:
 							cout<<"Edit Biodata"<<endl;
 							cout<<"=================="<<endl;
 							cout<<"1. Nama Mahasiswa : ";
@@ -1132,10 +1160,32 @@ break;
 							goto inspectionM;
 							}
 						}
+			} 
+			//Pilihan untuk melihat IPS
+			else if (selection == 2){
+				IPSM:
+					system("@cls || clear");
+					int semester,choice;
+					cout<<"Edit Akademik siswa :"<< endl;
+					cout<<"====================="<<endl;
+					cout<<"Semester ke : "<<recMhs[urutanlog].getSemester()<<endl;
+					cout<<"Nilai IPK : "<<recMhs[urutanlog].getIPK()<<endl;
+					for (float i=0;i<recMhs[urutanlog].getSemester();i++){
+							cout<<i+1<<". ";
+							cout<<"Semester "<<i+1<<": ";
+							cout<<recMhs[urutanlog].getIPS(i)<<endl;
+					}
+					cout<<endl;cout<<endl;
+					cout<<"Press 0 to exit";
+					cin>>choice;
+
+					if (choice == 0){goto biodatam;}
+
 			}
 
 			}break;
 
+			//Keluar dari login mahasiswa
 			case 2: {
 				temp = 0;
 				temp = startmenu(temp);
@@ -1143,6 +1193,7 @@ break;
 		}
 	}
 
+//Looping utama dari Tendik access
 	while (temp == 4){
 		int menu_terpilih = 0;
 		string tendikterpilih;
@@ -1160,6 +1211,7 @@ break;
 		cin  >> menu_terpilih;
 
 		switch (menu_terpilih){
+			//Menampilkan biodata Tendik
 			case 1: {
 			inspectionT:
 			int selection = 0;
@@ -1265,6 +1317,7 @@ break;
 
 			}break;
 
+			//Keluar dari log in Tendik
 			case 2: {
 				temp = 0;
 				temp = startmenu(temp);

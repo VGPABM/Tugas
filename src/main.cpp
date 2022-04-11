@@ -167,6 +167,8 @@ int main(int argc, char** argv)
 	int menu_terpilih;
 	string username;
 	int temp = 0;
+	start:
+	temp = 0;
 	system("@cls || clear");//function untuk membersihkan terminal
 	temp = startmenu(temp); //masuk ke dalam function startmenu
 
@@ -800,8 +802,7 @@ cin.ignore();
 
 		//Keluar dari login admin
 		case 7:{
-			temp = 0;
-			temp = startmenu(temp);
+			goto start:
 		}
 			break;
 		}
@@ -1043,8 +1044,7 @@ break;
 		
 		//Keluar dari Login dosen
 		case 3:{
-		temp = 0;
-		temp = startmenu(temp);
+		goto start;
 		}
 		break;
 		}
@@ -1187,8 +1187,7 @@ break;
 
 			//Keluar dari login mahasiswa
 			case 2: {
-				temp = 0;
-				temp = startmenu(temp);
+				goto start;
 			}break;
 		}
 	}
@@ -1319,8 +1318,7 @@ break;
 
 			//Keluar dari log in Tendik
 			case 2: {
-				temp = 0;
-				temp = startmenu(temp);
+				goto start;
 			}break;
 		}
 	}
